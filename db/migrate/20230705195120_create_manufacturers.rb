@@ -4,7 +4,7 @@ class CreateManufacturers < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :headquarters
       t.boolean :elemental?
-      t.integer :num_of_games_appeared_in
+      t.integer :equipment_production_total
 
       t.timestamps
     end

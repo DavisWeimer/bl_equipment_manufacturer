@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_06_001120) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_06_232202) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,17 +18,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_06_001120) do
     t.string "name"
     t.string "headquarters"
     t.boolean "elemental?"
-    t.integer "num_of_games_appeared_in"
+    t.integer "equipment_production_total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "weapon_id"
-    t.index ["weapon_id"], name: "index_manufacturers_on_weapon_id"
   end
 
   create_table "weapons", force: :cascade do |t|
     t.integer "level_req"
     t.string "rarity"
-    t.string "type"
+    t.string "weapon_type"
     t.string "name"
     t.integer "damage"
     t.float "accuracy"
@@ -45,6 +43,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_06_001120) do
     t.index ["manufacturer_id"], name: "index_weapons_on_manufacturer_id"
   end
 
-  add_foreign_key "manufacturers", "weapons"
   add_foreign_key "weapons", "manufacturers"
 end
