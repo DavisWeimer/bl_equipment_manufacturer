@@ -11,6 +11,15 @@ Then I see each Child in the system including the Child's attributes
 =end
 RSpec.describe 'The weapons index page' do
   it 'displays the names of all the weapons' do
+
+    visit "/weapons"
     
+    expect(page).to have_content(@dahl.weapons.first.name)
+    expect(page).to have_content(@jakobs.weapons.first.name)
+    expect(page).to have_content(@maliwan.weapons.first.name)
+    expect(page).to have_content(@torgue.weapons.first.name)
+    
+    expect(page).to_not have_content(@torgue.weapons.first.accuracy)
+    # save_and_open_page
   end
 end
