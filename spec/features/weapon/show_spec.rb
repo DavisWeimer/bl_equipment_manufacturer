@@ -13,7 +13,7 @@ RSpec.describe 'The weapons show page' do
   it 'displays the weapon by :id and its attributes' do
 
     visit "weapons/#{@maliwan.weapons.first.id}"
-    require 'pry'; binding.pry
+    
     expect(page).to have_content(@maliwan.weapons.first.name)
     expect(page).to have_content(@maliwan.weapons.first.level_req)
     expect(page).to have_content(@maliwan.weapons.first.rarity)
