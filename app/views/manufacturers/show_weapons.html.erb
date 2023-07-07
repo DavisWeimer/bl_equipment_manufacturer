@@ -1,0 +1,32 @@
+<h1><%= @manufacturer.name %> Weapons</h1>
+
+<p><hr></p>
+
+<p><% @weapons_list.each do |weapon| %></p>
+  <h2><%= weapon.name %></h1>
+
+  <h3>Level Requirement:</h3>
+  <%= weapon.level_req %>
+
+  <h3>Rarity:</h3> 
+  <%= weapon.rarity %>
+
+  <h3>Weapon Type:</h3> 
+  <%= weapon.weapon_type %>
+
+  <h3>Weapon Stats:</h3> 
+  <ul> 
+    <li>Damage — <%= weapon.damage %></li>
+    <li>Accuracy — <%= weapon.accuracy %></li>
+    <li>Fire Rate — <%= weapon.fire_rate %></li>
+    <li>Reload Speed — <%= weapon.reload_speed %></li>
+    <li>Magazine Size — <%= weapon.magazine_size %></li>
+    <li>Elemental? — <%= weapon.elemental? %></li>
+    <li>Elemental Type — <%= weapon.elemental_type %></li>
+    <li>Trait — <%= weapon.trait %></li>
+  </ul>
+
+  <h3>Price:</h3> 
+  <p>$<%= weapon.price %></p>
+  <p><hr></p>
+<% end %>
