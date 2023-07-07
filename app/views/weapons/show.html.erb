@@ -1,0 +1,26 @@
+<h1><%= @weapons.name %></h1>
+
+<h3>Level Requirement:</h3>
+<%= @weapons.level_req %>
+
+<h3>Rarity:</h3> 
+<%= @weapons.rarity %>
+
+<h3>Weapon Type:</h3> 
+<%= @weapons.weapon_type %>
+
+<h3>Weapon Stats:</h3> 
+<ul> 
+  <li>Damage — <%= @weapons.damage %></li>
+  <li>Accuracy — <%= @weapons.accuracy %></li>
+  <li>Fire Rate — <%= @weapons.fire_rate %></li>
+  <li>Reload Speed — <%= @weapons.reload_speed %></li>
+  <li>Magazine Size — <%= @weapons.magazine_size %></li>
+  <li>Elemental? — <%= @weapons.elemental? %></li>
+  <li>Elemental Type — <%= @weapons.elemental_type %></li>
+  <li>Trait — <%= @weapons.trait %></li>
+</ul>
+
+<h3>Price:</h3> 
+<p>$<%= @weapons.price %></p>
+

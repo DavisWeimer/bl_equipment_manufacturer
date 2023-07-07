@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get '/manufacturers', to: 'manufacturers#index'
   get '/manufacturers/:id', to: 'manufacturers#show'
   get '/weapons', to: 'weapons#index'
+  get '/weapons/:id', to: 'weapons#show'
 end
