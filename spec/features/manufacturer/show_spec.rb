@@ -16,6 +16,14 @@ User Story 7, Parent Child Count
 As a visitor
 When I visit a parent's show page
 I see a count of the number of children associated with this parent
+
+[🍙] done
+
+User Story 10, Parent Child Index Link
+
+As a visitor
+When I visit a parent show page ('/parents/:id')
+Then I see a link to take me to that parent's `child_table_name` page ('/parents/:id/child_table_name')
 =end
 
 RSpec.describe 'The Manufacturer', type: :feature  do
@@ -40,6 +48,13 @@ RSpec.describe 'The Manufacturer', type: :feature  do
       expect(page).to have_content(@dahl.weapons.count)
 
       expect(page).to_not have_content(@torgue.weapons.count)
+    end
+
+    it 'displays a link to Manufacturers Weapons page' do
+
+      visit "/manufacturers/#{@maliwan.id}"
+      save_and_open_page
+      expect(page).to have_link("#{@maliwan.name} Weapons", href: "/manufacturers/#{@maliwan.id}/weapons")
     end
   end
 end
