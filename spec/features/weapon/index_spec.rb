@@ -17,6 +17,7 @@ As a visitor
 When I visit any page on the site
 Then I see a link at the top of the page that takes me to the Child Index
 =end
+
 RSpec.describe 'The Weapon', type: :feature do
   describe '#index page' do
     it 'displays the names of all the weapons' do
@@ -31,7 +32,7 @@ RSpec.describe 'The Weapon', type: :feature do
       expect(page).to_not have_content(@torgue.weapons.first.accuracy)
     end
 
-    it 'has global link available on all pages on site' do
+    it 'has global Weapons Index link available on all pages on site' do
 
       visit "/weapons"
       expect(page).to have_link("Weapons Index", href: "/weapons")
@@ -41,9 +42,6 @@ RSpec.describe 'The Weapon', type: :feature do
 
       visit "/manufacturers/#{@jakobs.id}/weapons"
       expect(page).to have_link("Weapons Index", href: "/weapons")
-
-      visit "/manufacturers"
-      expect(page).to_not have_link("Manufacturers Index", href: "/manufacturers")
 
     end
   end

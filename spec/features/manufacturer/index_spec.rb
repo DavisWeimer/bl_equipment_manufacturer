@@ -17,6 +17,14 @@ As a visitor
 When I visit the parent index,
 I see that records are ordered by most recently created first
 And next to each of the records I see when it was created
+
+[🍕] done
+
+User Story 9, Parent Index Link
+
+As a visitor
+When I visit any page on the site
+Then I see a link at the top of the page that takes me to the Parent Index
 =end
 
 RSpec.describe 'The Manufacturer', type: :feature do
@@ -48,6 +56,18 @@ RSpec.describe 'The Manufacturer', type: :feature do
       expect(page).to have_content(@torgue.created_at)
       
       expect(page).to_not have_content(@torgue.headquarters)
+    end
+
+    it 'has global Manufacturer Index link available on all pages on site' do
+      
+      visit "/manufacturers"
+      expect(page).to have_link("Manufacturers Index", href: "/manufacturers")
+      
+      visit "/weapons"
+      expect(page).to have_link("Manufacturers Index", href: "/manufacturers")
+
+      visit "/weapons/#{@maliwan.weapons.first.id}"
+      expect(page).to have_link("Manufacturers Index", href: "/manufacturers")
     end
   end
 end
