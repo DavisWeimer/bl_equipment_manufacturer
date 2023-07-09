@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   get '/manufacturers/:id/weapons', to: 'manufacturers#show_weapons'
   get '/weapons', to: 'weapons#index'
   get '/weapons/:id', to: 'weapons#show'
+
+  get "/new", to: "manufacturers#new"
+  post "/manufacturers", to: "manufacturers#create"
 end

@@ -12,4 +12,17 @@ class ManufacturersController < ApplicationController
     @manufacturer = Manufacturer.find(params[:id])
     @weapons_list = @manufacturer.weapons
   end
+
+  def new; end
+
+  def create
+    manufacturer = Manufacturer.new({
+      name: params[:manufacturer][:name],
+      headquarters: params[:manufacturer][:headquarters],
+      elemental?: params[:manufacturer][:elemental?],
+      equipment_production_total: params[:manufacturer][:equipment_production_total]
+    })
+    manufacturer.save
+    redirect_to '/manufacturers'
+  end
 end

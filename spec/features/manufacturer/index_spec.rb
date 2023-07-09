@@ -25,6 +25,22 @@ User Story 9, Parent Index Link
 As a visitor
 When I visit any page on the site
 Then I see a link at the top of the page that takes me to the Parent Index
+
+[😱] done
+
+User Story 11, Parent Creation 
+
+As a visitor
+When I visit the Parent Index page
+Then I see a link to create a new Parent record, "New Parent"
+When I click this link
+Then I am taken to '/parents/new' where I  see a form for a new parent record
+When I fill out the form with a new parent's attributes:
+And I click the button "Create Parent" to submit the form
+Then a `POST` request is sent to the '/parents' route,
+a new parent record is created,
+and I am redirected to the Parent Index page where I see the new Parent displayed.
+
 =end
 
 RSpec.describe 'The Manufacturer', type: :feature do
@@ -64,6 +80,20 @@ RSpec.describe 'The Manufacturer', type: :feature do
 
       visit "/weapons/#{@maliwan.weapons.first.id}"
       expect(page).to have_link("Manufacturers Index", href: "/manufacturers")
+    end
+
+    it 'displays a link that take users to a form to create new Manufacturer' do
+      visit "/manufacturers"
+
+      click_link "New Manufacturer"
+
+      fill_in "manufacturer[name]", with: "Hyperion"
+      fill_in "manufacturer[headquarters]", with: "Helios"
+      choose "manufacturer[elemental?]", option: "True"
+      fill_in "Equipment Production Total", with: 10392844
+      click_button "Submit"
+      
+      expect(page.text).to have_content("Hyperion")
     end
   end
 end

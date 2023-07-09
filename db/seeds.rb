@@ -11,7 +11,7 @@ Weapon.destroy_all
 dahl = Manufacturer.create!(name: "Dahl", headquarters: "Unknown", elemental?: true, equipment_production_total: 752005)
 jakobs = Manufacturer.create!(name: "Jakobs", headquarters: "Eden-6", elemental?: false, equipment_production_total: 1563549)
 maliwan = Manufacturer.create!(name: "Maliwan", headquarters: "Promethea", elemental?: true, equipment_production_total: 9846620)
-torgue = Manufacturer.create!(name: "Torque", headquarters: "Pandora", elemental?: false, equipment_production_total: 336452)
+torgue = Manufacturer.create!(name: "Torgue", headquarters: "Pandora", elemental?: false, equipment_production_total: 336452)
 
 dahl.weapons.create!(level_req: 9, rarity: "Orange", weapon_type: "SMG", name: "Deft Emperor", damage: 53, accuracy: 91.3, fire_rate: 5.5, reload_speed: 2.3, magazine_size: 48, elemental?: false, elemental_type: "None", trait: "Burst fire while zoomed", price: 2032)
 dahl.weapons.create!(level_req: 28, rarity: "Blue", weapon_type: "Pistol", name: "Twin Anaconda", damage: 395, accuracy: 87.2, fire_rate: 9.6, reload_speed: 1.4, magazine_size: 25, elemental?: false, elemental_type: "None", trait: "Burst fire while zoomed & +8% Critical Hit Damage", price: 1273)

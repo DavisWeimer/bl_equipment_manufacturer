@@ -1,0 +1,16 @@
+<form action="/manufacturers" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+  <p>Enter a new Manufacturer:</p>
+  <label for="name">Name</label><br>
+  <input type="text" id="name" name="manufacturer[name]" required/><br>
+  <label for="headquarters">Headquarters</label><br>
+  <input type="text" id="headquarter" name="manufacturer[headquarters]" required/><br>
+  <label for="elemental?">Can produce elemental equiupment?</label><br>
+  <input type="radio" id="elemental?" name="manufacturer[elemental?]" value="True" required/>
+  <label for="elemental?">True</label><br>
+  <input type="radio" id="elemental?" name="manufacturer[elemental?]" value="False" required/>
+  <label for="elemental?">False</label><br>
+  <label for="equip_total">Equipment Production Total:</label><br>
+  <input type="number" id="equip_total" name="manufacturer[equipment_production_total]" required/><br>
+  <input type="submit" value="Submit"/>
+</form>
