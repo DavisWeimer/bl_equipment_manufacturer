@@ -89,7 +89,7 @@ RSpec.describe 'The Manufacturer', type: :feature do
 
       fill_in "manufacturer[name]", with: "Hyperion"
       fill_in "manufacturer[headquarters]", with: "Helios"
-      choose "manufacturer[elemental?]", option: "True"
+      choose "manufacturer[elemental?]", option: "true"
       fill_in "Equipment Production Total", with: 10392844
       click_button "Submit"
       

@@ -24,6 +24,22 @@ User Story 10, Parent Child Index Link
 As a visitor
 When I visit a parent show page ('/parents/:id')
 Then I see a link to take me to that parent's `child_table_name` page ('/parents/:id/child_table_name')
+
+[🧦] done
+
+User Story 12, Parent Update 
+
+As a visitor
+When I visit a parent show page
+Then I see a link to update the parent "Update Parent"
+When I click the link "Update Parent"
+Then I am taken to '/parents/:id/edit' where I  see a form to edit the parent's attributes:
+When I fill out the form with updated information
+And I click the button to submit the form
+Then a `PATCH` request is sent to '/parents/:id',
+the parent's info is updated,
+and I am redirected to the Parent's Show page where I see the parent's updated info
+
 =end
 
 RSpec.describe 'The Manufacturer', type: :feature  do
@@ -55,6 +71,20 @@ RSpec.describe 'The Manufacturer', type: :feature  do
       visit "/manufacturers/#{@maliwan.id}"
       
       expect(page).to have_link("#{@maliwan.name} Weapons", href: "/manufacturers/#{@maliwan.id}/weapons")
+    end
+
+    xit 'displays link that takes user to edit form for current Manufacturer' do
+
+      visit "/manufacturers/#{@torgue.id}"
+
+      click_link "Edit details"
+
+      fill_in "manufacturer[headquarters]", with: "THIS IS A TEST OF THE LOCATION"
+      choose "manufacturer[elemental?]", option: "false"
+      click_button "Submit"
+
+      expect(@torgue.headquarters).to eq("THIS IS A TEST OF THE LOCATION")
+      expect(@torgue.elemental?).to eq(false)
     end
   end
 end

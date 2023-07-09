@@ -14,6 +14,10 @@ class ManufacturersController < ApplicationController
   end
 
   def new; end
+  
+  def form_to_boolean?(form_attr)
+    form_attr == "true"
+  end
 
   def create
     manufacturer = Manufacturer.new({
@@ -22,7 +26,25 @@ class ManufacturersController < ApplicationController
       elemental?: params[:manufacturer][:elemental?],
       equipment_production_total: params[:manufacturer][:equipment_production_total]
     })
+    form_to_boolean?(manufacturer.elemental?)
     manufacturer.save
     redirect_to '/manufacturers'
+  end
+
+  def edit
+    @manufacturer = Manufacturer.find(params[:id])
+  end
+
+  def update
+    manufacturer = Manufacturer.find(params[:id])
+    manufacturer.update({
+      name: params[:manufacturer][:name],
+      headquarters: params[:manufacturer][:headquarters],
+      elemental?: params[:manufacturer][:elemental?],
+      equipment_production_total: params[:manufacturer][:equipment_production_total]
+    })
+    form_to_boolean?(manufacturer.elemental?)
+    manufacturer.save
+    redirect_to "/manufacturers/#{manufacturer.id}"
   end
 end
