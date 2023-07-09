@@ -53,7 +53,7 @@ RSpec.describe 'The Manufacturer', type: :feature  do
     it 'displays a link to Manufacturers Weapons page' do
 
       visit "/manufacturers/#{@maliwan.id}"
-      save_and_open_page
+      
       expect(page).to have_link("#{@maliwan.name} Weapons", href: "/manufacturers/#{@maliwan.id}/weapons")
     end
   end

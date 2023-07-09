@@ -43,23 +43,19 @@ RSpec.describe 'The Manufacturer', type: :feature do
 
     
     it 'orders the display of names by most recent created' do
+      hyperion = Manufacturer.create!(name: "Hyperion", headquarters: "Helios", elemental?: true, equipment_production_total: 10392844)
+      hyperion.created_at = Time.zone.parse('2023-07-08 10:30:00')
+      
+      dahl = Manufacturer.create!(name: "Dahl", headquarters: "Unknown", elemental?: true, equipment_production_total: 752005)
+      dahl.created_at = Time.zone.parse('2023-07-07 10:30:00')
 
       visit "/manufacturers"
 
-      expect(page).to have_content(@dahl.name)
-      expect(page).to have_content(@dahl.created_at)
-      expect(page).to have_content(@jakobs.name)
-      expect(page).to have_content(@jakobs.created_at)
-      expect(page).to have_content(@maliwan.name)
-      expect(page).to have_content(@maliwan.created_at)
-      expect(page).to have_content(@torgue.name)
-      expect(page).to have_content(@torgue.created_at)
-      
-      expect(page).to_not have_content(@torgue.headquarters)
+      expect(page.text.index(dahl.name)).to be < page.text.index(hyperion.name)
     end
 
     it 'has global Manufacturer Index link available on all pages on site' do
-      
+
       visit "/manufacturers"
       expect(page).to have_link("Manufacturers Index", href: "/manufacturers")
       
