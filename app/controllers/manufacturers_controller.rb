@@ -10,7 +10,7 @@ class ManufacturersController < ApplicationController
 
   def show_weapons
     @manufacturer = Manufacturer.find(params[:id])
-    @weapons_list = @manufacturer.weapons
+    @weapons_list = @manufacturer.weapons.order(:name)
   end
 
   def new; end

@@ -23,6 +23,16 @@ And I click the button "Create Child"
 Then a `POST` request is sent to '/parents/:parent_id/child_table_name',
 a new child object/row is created for that parent,
 and I am redirected to the Parent Childs Index page where I can see the new child listed
+
+[🏴‍☠️] done
+
+User Story 16, Sort Parent's Children in Alphabetical Order by name 
+
+As a visitor
+When I visit the Parent's children Index Page
+Then I see a link to sort children in alphabetical order
+When I click on the link
+I'm taken back to the Parent's children Index Page where I see all of the parent's children in alphabetical order
 =end
 RSpec.describe 'The manufacturers #show_weapons page' do
   it 'displays the weapons associated w/ the manufacturer :id' do
@@ -69,5 +79,12 @@ RSpec.describe 'The manufacturers #show_weapons page' do
 
     expect(@torgue.weapons.count).to eq(2)
     expect(@torgue.weapons.last.name).to eq("Hole Puncher")
+  end
+
+  it 'displays the Weapons in alphabetical order' do
+
+    visit "/manufacturers/#{@maliwan.id}/weapons"
+
+    expect(page.text.index("Barking Volcano")).to be < page.text.index("Pyroclastic Projectile")
   end
 end
