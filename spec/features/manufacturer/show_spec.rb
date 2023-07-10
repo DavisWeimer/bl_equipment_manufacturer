@@ -89,5 +89,14 @@ RSpec.describe 'The Manufacturer', type: :feature  do
       expect(@torgue.headquarters).to eq("THIS IS A TEST OF THE LOCATION")
       expect(@torgue.elemental?).to eq(false)
     end
+
+    it 'displays a button to Delete Manufacturer and all associated Weapons' do
+
+      visit "/manufacturers/#{@maliwan.id}"
+
+      click_button "Delete"
+
+      expect(page).to_not have_text("Maliwan")
+    end
   end
 end
