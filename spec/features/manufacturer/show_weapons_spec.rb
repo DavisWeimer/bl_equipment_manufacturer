@@ -52,6 +52,22 @@ RSpec.describe 'The manufacturers #show_weapons page' do
 
     click_link "Add weapon"
 
-    
+    select 60, from: "weapon[level_req]"
+    select "Purple", from: "weapon[rarity]"
+    select "Pistol", from: "weapon[weapon_type]"
+    fill_in "weapon[name]", with: "Hole Puncher"
+    fill_in "weapon[damage]", with: 45780
+    fill_in "weapon[accuracy]", with: 91.7
+    fill_in "weapon[fire_rate]", with: 2.3
+    fill_in "weapon[reload_speed]", with: 1.9
+    fill_in "weapon[magazine_size]", with: 13
+    choose "weapon[elemental?]", option: "false"
+    select "Explosive", from: "weapon[elemental_type]"
+    fill_in "weapon[trait]", with: "+8% Critical Hit Damage & Deals bonus explosive damage"
+    fill_in "weapon[price]", with: 79993
+    click_button "Submit"
+
+    expect(@torgue.weapons.count).to eq(2)
+    expect(@torgue.weapons.last.name).to eq("Hole Puncher")
   end
 end

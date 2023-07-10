@@ -16,7 +16,9 @@ class WeaponsController < ApplicationController
   end
 
   def create
-    weapon = Weapon.new({
+    @manufacturer = Manufacturer.find(params[:id])
+    
+    weapon = @manufacturer.weapons.new({
       level_req: params[:weapon][:level_req],
       rarity: params[:weapon][:rarity],
       weapon_type: params[:weapon][:weapon_type],
@@ -31,8 +33,8 @@ class WeaponsController < ApplicationController
       trait: params[:weapon][:trait],
       price: params[:weapon][:price]
     })
-    form_to_boolean?(weapons.elemental?)
-    weapons.save
+    form_to_boolean?(weapon.elemental?)
+    weapon.save
     redirect_to "/manufacturers/#{@manufacturer.id}/weapons"
   end
 end

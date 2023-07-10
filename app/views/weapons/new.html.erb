@@ -3,7 +3,7 @@
   <p>Add a new <%= @manufacturer.name %> weapon:</p>
 
   <label for="level_req">Level Requirement</label><br>
-  <select id="level_req" name="weapons[level_req]" required>
+  <select id="level_req" name="weapon[level_req]" required>
     <option value="" disabled selected>Select level</option>
     <% (1..80).each do |num| %>
       <option value="<%= num %>"><%= num %></option>
@@ -12,7 +12,7 @@
 
   
   <label for="rarity">Rarity</label><br>
-  <select id="rarity" name="weapons[rarity]" required>
+  <select id="rarity" name="weapon[rarity]" required>
     <option value="" disabled selected>Select rarity</option>
     <option value="White">White</option>
     <option value="Green">Green</option>
@@ -22,7 +22,7 @@
   </select><br>
   
   <label for="weapon_type">Weapon Type</label><br>
-  <select id="weapon_type" name="weapons[weapon_type]" required>
+  <select id="weapon_type" name="weapon[weapon_type]" required>
     <option value="" disabled selected>Select type</option>
     <option value="Pistol">Pistol</option>
     <option value="SMG">SMG</option>
@@ -33,25 +33,25 @@
   </select><br>
 
   <label for="name">Name</label><br>
-  <input type="text" id="name" name="weapons[name]" required/><br>
+  <input type="text" id="name" name="weapon[name]" required/><br>
   <label for="damage">Damage</label><br>
-  <input type="number" id="damage" name="weapons[damage]" required/><br>
+  <input type="number" id="damage" name="weapon[damage]" required/><br>
   <label for="accuracy">Accuracy</label><br>
-  <input type="number" id="accuracy" name="weapons[accuracy]" step="0.1" required/><br>
+  <input type="number" id="accuracy" name="weapon[accuracy]" step="0.1" required/><br>
   <label for="fire_rate">Fire Rate</label><br>
-  <input type="number" id="fire_rate" name="weapons[fire_rate]" step="0.1" required/><br>
+  <input type="number" id="fire_rate" name="weapon[fire_rate]" step="0.1" required/><br>
   <label for="reload_speed">Reload Speed</label><br>
-  <input type="number" id="reload_speed" name="weapons[reload_speed]" step="0.1" required/><br>
+  <input type="number" id="reload_speed" name="weapon[reload_speed]" step="0.1" required/><br>
   <label for="magazine_size">Magazine Size</label><br>
-  <input type="number" id="magazine_size" name="weapons[magazine_size]" required/><br>
+  <input type="number" id="magazine_size" name="weapon[magazine_size]" required/><br>
   <label for="elemental?">Elemental?</label><br>
-  <input type="radio" id="elemental?" name="weapons[elemental?]" value="true" required/>
+  <input type="radio" id="elemental?" name="weapon[elemental?]" value="true" required/>
   <label for="elemental?">True</label><br>
-  <input type="radio" id="elemental?" name="weapons[elemental?]" value="false" required/>
+  <input type="radio" id="elemental?" name="weapon[elemental?]" value="false" required/>
   <label for="elemental?">False</label><br>
 
   <label for="elemental_type">Elemental Type</label><br>
-  <select id="elemental_type" name="weapons[elemental_type]" required>
+  <select id="elemental_type" name="weapon[elemental_type]" required>
     <option value="" disabled selected>Select elemental</option>
     <option value="None">None</option>
     <option value="Corrosive">Corrosive</option>
@@ -62,9 +62,9 @@
   </select><br>
 
   <label for="trait">Trait</label><br>
-  <textarea name="task[trait]" value="<%= @manufacturer.weapons.first.trait %>" required></textarea><br/>
+  <textarea name="weapon[trait]" value="<%= @manufacturer.weapons.first.trait %>" required></textarea><br/>
   <label for="price">Price</label><br>
-  <input type="number" id="price" name="weapons[price]" required/><br><br>
+  <input type="number" id="price" name="weapon[price]" required/><br><br>
 
   <input type="submit" value="Submit"/>
 </form>
