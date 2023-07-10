@@ -16,6 +16,15 @@ User Story 8, Child Index Link
 As a visitor
 When I visit any page on the site
 Then I see a link at the top of the page that takes me to the Child Index
+
+[🍌] done
+
+User Story 15, Child Index only shows `true` Records 
+
+As a visitor
+When I visit the child index
+Then I only see records where the boolean column is `true`
+
 =end
 
 RSpec.describe 'The Weapon', type: :feature do
@@ -43,6 +52,16 @@ RSpec.describe 'The Weapon', type: :feature do
       visit "/manufacturers/#{@jakobs.id}/weapons"
       expect(page).to have_link("Weapons Index", href: "/weapons")
 
+    end
+
+    it 'displays the Weapon elemental type if .elemental? is true' do
+
+      visit "/weapons"
+
+      expect(page).to have_content("Corrosive elemental")
+      expect(page).to have_content("Incendiary elemental")
+      expect(page).to have_content("Slag elemental")
+      expect(page).to have_content("Shock elemental")
     end
   end
 end
