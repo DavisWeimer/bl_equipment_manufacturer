@@ -15,4 +15,7 @@ Rails.application.routes.draw do
 
   get "/manufacturers/:id/edit", to: "manufacturers#edit"
   patch "/manufacturers/:id", to: "manufacturers#update"
+
+  get "/manufacturers/:id/weapons/new", to: "weapons#new"
+  post "/manufacturers/:id/weapons", to: "weapons#create"
 end

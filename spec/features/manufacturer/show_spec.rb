@@ -73,7 +73,8 @@ RSpec.describe 'The Manufacturer', type: :feature  do
       expect(page).to have_link("#{@maliwan.name} Weapons", href: "/manufacturers/#{@maliwan.id}/weapons")
     end
 
-    xit 'displays link that takes user to edit form for current Manufacturer' do
+
+    it 'displays link that takes user to update form for current Manufacturer' do
 
       visit "/manufacturers/#{@torgue.id}"
 
@@ -82,6 +83,8 @@ RSpec.describe 'The Manufacturer', type: :feature  do
       fill_in "manufacturer[headquarters]", with: "THIS IS A TEST OF THE LOCATION"
       choose "manufacturer[elemental?]", option: "false"
       click_button "Submit"
+
+      @torgue.reload #lol that keyword works well
 
       expect(@torgue.headquarters).to eq("THIS IS A TEST OF THE LOCATION")
       expect(@torgue.elemental?).to eq(false)

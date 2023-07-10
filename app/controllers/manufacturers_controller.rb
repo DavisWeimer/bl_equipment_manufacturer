@@ -17,6 +17,15 @@ class ManufacturersController < ApplicationController
   
   def form_to_boolean?(form_attr)
     form_attr == "true"
+    # if object.elemental? == "true"
+    #   object.update({
+    #     elemental?: params[:manufacturer][:elemental?] = true
+    #   })
+    # else object.elemental? == "false"
+    #   object.update({
+    #     elemental?: params[:manufacturer][:elemental?] = false
+    #   })
+    # end
   end
 
   def create
