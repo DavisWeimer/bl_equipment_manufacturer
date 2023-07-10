@@ -8,6 +8,20 @@ As a visitor
 When I visit '/child_table_name/:id'
 Then I see the child with that id including the child's attributes
 (data from each column that is on the child table)
+
+[📍] done
+
+User Story 14, Child Update 
+
+As a visitor
+When I visit a Child Show page
+Then I see a link to update that Child "Update Child"
+When I click the link
+I am taken to '/child_table_name/:id/edit' where I see a form to edit the child's attributes:
+When I click the button to submit the form "Update Child"
+Then a `PATCH` request is sent to '/child_table_name/:id',
+the child's data is updated,
+and I am redirected to the Child Show page where I see the Child's updated information
 =end
 RSpec.describe 'The Weapon', type: :feature do
   describe '#show page' do
@@ -30,6 +44,19 @@ RSpec.describe 'The Weapon', type: :feature do
       expect(page).to have_content(@maliwan.weapons.first.price)
       
       expect(page).to_not have_content(@maliwan.weapons.first.created_at)
+    end
+
+    it 'displays a link that takes user to an update form for current Weapon' do
+
+      visit "/weapons/#{@torgue.weapons.first.id}"
+
+      click_link "Edit details"
+      select "Sniper Rifle", from: "weapon[weapon_type]"
+      choose "weapon[elemental?]", option: "false"
+      click_button "Submit"
+
+      expect(@torgue.weapons.first.weapon_type).to eq("Sniper Rifle") 
+      expect(@torgue.weapons.first.elemental?).to eq(false) 
     end
   end
 end

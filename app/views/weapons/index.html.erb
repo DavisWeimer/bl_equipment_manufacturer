@@ -1,5 +1,5 @@
 <h1>Borderlands Weapons</h1>
 
 <% @weapons.each do |wep| %>
-  <p><%= wep.name %></p>
+  <p><a href="/weapons/<%= wep.id %>"><%= wep.name %></a></p>
 <% end %>

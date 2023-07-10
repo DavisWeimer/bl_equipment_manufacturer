@@ -1,6 +1,5 @@
-<h1><%= @manufacturer.name %></h1><br>
-<h3><a href="/manufacturers/<%= @manufacturer.id %>/weapons"><%= @manufacturer.name %> Weapons</a></h3>
-
+<h1><%= @manufacturer.name %></h1>
+<a href="/manufacturers/<%= @manufacturer.id %>/edit">Edit details</a>
 <h3>Headquarters:</h3>
 <%= @manufacturer.headquarters %>
 
@@ -13,3 +12,7 @@
 <h3>Equipment in database total:</h3>
 <%= @manufacturer.weapons.count %>
 
+<h3>Equipment in database links:</h3>
+<ul>
+  <li><h3><a href="/manufacturers/<%= @manufacturer.id %>/weapons"><%= @manufacturer.name %> Weapons</a></h3></li>
+</ul>

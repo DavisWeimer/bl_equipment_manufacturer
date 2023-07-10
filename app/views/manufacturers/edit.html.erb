@@ -1,0 +1,17 @@
+<form action="/manufacturers/<%= @manufacturer.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <p>Edit</p>
+  <label for="name">Name</label><br>
+  <input type="text" id="name" name="manufacturer[name]" value="<%= @manufacturer.name %>" /><br>
+  <label for="headquarters">Headquarters</label><br>
+  <input type="text" id="headquarter" name="manufacturer[headquarters]" value="<%= @manufacturer.headquarters %>"/><br>
+  <label for="elemental?">Can produce elemental equiupment?</label><br>
+  <input type="radio" id="elemental_true" name="manufacturer[elemental?]" value="true" required/>
+  <label for="elemental_true">True</label><br>
+  <input type="radio" id="elemental_false" name="manufacturer[elemental?]" value="false" required/>
+  <label for="elemental_false">False</label><br>
+  <label for="equip_total">Equipment Production Total:</label><br>
+  <input type="number" id="equip_total" name="manufacturer[equipment_production_total]" value="<%= @manufacturer.equipment_production_total %>"/><br>
+  <input type="submit" value="Submit"/>
+</form>
