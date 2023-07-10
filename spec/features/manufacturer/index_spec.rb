@@ -41,6 +41,15 @@ Then a `POST` request is sent to the '/parents' route,
 a new parent record is created,
 and I am redirected to the Parent Index page where I see the new Parent displayed.
 
+[💡] done
+
+User Story 17, Parent Update From Parent Index Page 
+
+As a visitor
+When I visit the parent index page
+Next to every parent, I see a link to edit that parent's info
+When I click the link
+I should be taken to that parent's edit page where I can update its information just like in User Story 12
 =end
 
 RSpec.describe 'The Manufacturer', type: :feature do
@@ -83,6 +92,7 @@ RSpec.describe 'The Manufacturer', type: :feature do
     end
 
     it 'displays a link that take users to a form to create new Manufacturer' do
+
       visit "/manufacturers"
 
       click_link "New Manufacturer"
@@ -94,6 +104,13 @@ RSpec.describe 'The Manufacturer', type: :feature do
       click_button "Submit"
       
       expect(page.text).to have_content("Hyperion")
+    end
+
+    it 'display a Edit link that takes the user to the Manufacturer edit form' do
+      
+      visit "/manufacturers"
+
+      expect(page).to have_link("Edit")
     end
   end
 end
