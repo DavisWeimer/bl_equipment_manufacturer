@@ -33,6 +33,17 @@ When I visit the Parent's children Index Page
 Then I see a link to sort children in alphabetical order
 When I click on the link
 I'm taken back to the Parent's children Index Page where I see all of the parent's children in alphabetical order
+
+[🥤] done
+
+User Story 18, Child Update From Childs Index Page 
+
+As a visitor
+When I visit the `child_table_name` index page or a parent `child_table_name` index page
+Next to every child, I see a link to edit that child's info
+When I click the link
+I should be taken to that `child_table_name` edit page where I can update its information just like in User Story 14
+
 =end
 RSpec.describe 'The manufacturers #show_weapons page' do
   it 'displays the weapons associated w/ the manufacturer :id' do
@@ -86,5 +97,12 @@ RSpec.describe 'The manufacturers #show_weapons page' do
     visit "/manufacturers/#{@maliwan.id}/weapons"
 
     expect(page.text.index("Barking Volcano")).to be < page.text.index("Pyroclastic Projectile")
+  end
+
+  it 'displays a button to Edit the Weapon' do
+
+    visit "/manufacturers/#{@dahl.id}/weapons"
+
+    expect(page).to have_link("Edit")
   end
 end

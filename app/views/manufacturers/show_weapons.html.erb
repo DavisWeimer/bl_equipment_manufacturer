@@ -4,6 +4,7 @@
 
 <p><% @weapons_list.each do |weapon| %></p>
   <h2><%= weapon.name %></h1>
+<button><a href="/weapons/<%= weapon.id %>/edit">Edit</a></button>
 
   <h3>Level Requirement:</h3>
   <%= weapon.level_req %>
