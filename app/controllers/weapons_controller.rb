@@ -43,7 +43,6 @@ class WeaponsController < ApplicationController
   end
 
   def update
-    @manufacturer = Manufacturer.find(params[:id])
     weapon = Weapon.find(params[:id])
 
     weapon.update({
