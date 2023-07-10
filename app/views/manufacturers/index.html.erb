@@ -4,6 +4,6 @@
 
 
 <% @manufacturers_sorted.each do |manufac| %>
-  <h3><%= manufac.name %> — Date created: <%= manufac.created_at %></h3>
+  <h3><a href="/manufacturers/<%= manufac.id %>"><%= manufac.name%></a> — Date created: <%= manufac.created_at %></h3>
 <% end %>
 

@@ -74,7 +74,7 @@ RSpec.describe 'The Manufacturer', type: :feature  do
     end
 
 
-    it 'displays link that takes user to update form for current Manufacturer' do
+    it 'displays a link that takes user to an update form for current Manufacturer' do
 
       visit "/manufacturers/#{@torgue.id}"
 
