@@ -93,6 +93,8 @@ RSpec.describe 'The Manufacturer', type: :feature  do
     it 'displays a button to Delete Manufacturer and all associated Weapons' do
 
       visit "/manufacturers/#{@maliwan.id}"
+      
+      expect(page).to have_text("Maliwan")
 
       click_button "Delete"
 
