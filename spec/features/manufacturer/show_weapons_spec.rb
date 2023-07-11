@@ -44,6 +44,16 @@ Next to every child, I see a link to edit that child's info
 When I click the link
 I should be taken to that `child_table_name` edit page where I can update its information just like in User Story 14
 
+[⚓️] done
+
+User Story 21, Display Records Over a Given Threshold 
+
+As a visitor
+When I visit the Parent's children Index Page
+I see a form that allows me to input a number value
+When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
+Then I am brought back to the current index page with only the records that meet that threshold shown.
+
 =end
 RSpec.describe 'The manufacturers #show_weapons page' do
   it 'displays the weapons associated w/ the manufacturer :id' do
