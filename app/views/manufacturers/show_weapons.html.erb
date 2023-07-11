@@ -1,33 +1,47 @@
 <h1><%= @manufacturer.name %> Weapons</h1>
-<a href="/manufacturers/<%= @manufacturer.id %>/weapons/new">Add weapon</a>
+<a href="/manufacturers/<%= @manufacturer.id %>/weapons/new">Add weapon</a><br>
+
+<form action="/manufacturers/<%= @manufacturer.id %>/weapons" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+  <p>Sort by damage threshold</p>
+  <label for="damage">Damage:</label><br>
+  <input type="number" id="damage" name="weapon[damage]" required/><br>
+  <input type="submit" value="Submit"/>
+</form>
+  
 <p><hr></p>
 
-<p><% @weapons_list.each do |weapon| %></p>
-  <h2><%= weapon.name %></h1>
-<button><a href="/weapons/<%= weapon.id %>/edit">Edit</a></button>
+  <p><% @weapons_list.each do |weapon| %></p>
+    <h2><%= weapon.name %></h1>
+  <button><a href="/weapons/<%= weapon.id %>/edit">Edit</a></button>
+  <form action="/weapons/<%= weapon.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete"/>
+  </form>
 
-  <h3>Level Requirement:</h3>
-  <%= weapon.level_req %>
+    <h3>Level Requirement:</h3>
+    <%= weapon.level_req %>
 
-  <h3>Rarity:</h3> 
-  <%= weapon.rarity %>
+    <h3>Rarity:</h3> 
+    <%= weapon.rarity %>
 
-  <h3>Weapon Type:</h3> 
-  <%= weapon.weapon_type %>
+    <h3>Weapon Type:</h3> 
+    <%= weapon.weapon_type %>
 
-  <h3>Weapon Stats:</h3> 
-  <ul> 
-    <li>Damage — <%= weapon.damage %></li>
-    <li>Accuracy — <%= weapon.accuracy %></li>
-    <li>Fire Rate — <%= weapon.fire_rate %></li>
-    <li>Reload Speed — <%= weapon.reload_speed %></li>
-    <li>Magazine Size — <%= weapon.magazine_size %></li>
-    <li>Elemental? — <%= weapon.elemental? %></li>
-    <li>Elemental Type — <%= weapon.elemental_type %></li>
-    <li>Trait — <%= weapon.trait %></li>
-  </ul>
+    <h3>Weapon Stats:</h3> 
+    <ul> 
+      <li>Damage — <%= weapon.damage %></li>
+      <li>Accuracy — <%= weapon.accuracy %></li>
+      <li>Fire Rate — <%= weapon.fire_rate %></li>
+      <li>Reload Speed — <%= weapon.reload_speed %></li>
+      <li>Magazine Size — <%= weapon.magazine_size %></li>
+      <li>Elemental? — <%= weapon.elemental? %></li>
+      <li>Elemental Type — <%= weapon.elemental_type %></li>
+      <li>Trait — <%= weapon.trait %></li>
+    </ul>
 
-  <h3>Price:</h3> 
-  <p>$<%= weapon.price %></p>
-  <p><hr></p>
-<% end %>
+    <h3>Price:</h3> 
+    <p>$<%= weapon.price %></p>
+    <p><hr></p>
+  <% end %>

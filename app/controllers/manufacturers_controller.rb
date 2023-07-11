@@ -13,6 +13,10 @@ class ManufacturersController < ApplicationController
     @weapons_list = @manufacturer.weapons.order(:name)
   end
 
+  def show_sorted_by_damage
+    @weapons_list = @manufacturer.weapons.order(:name)
+  end
+
   def new; end
   
   def form_to_boolean?(form_attr)

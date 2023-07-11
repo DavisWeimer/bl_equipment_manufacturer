@@ -24,4 +24,6 @@ Rails.application.routes.draw do
 
   delete "/manufacturers/:id", to: "manufacturers#destroy"
   delete "/weapons/:id", to: "weapons#destroy"
+
+  get "/manufacturers/:id/weapons", to: "manufacturer#show_sorted_by_damage"
 end
