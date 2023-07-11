@@ -58,5 +58,16 @@ RSpec.describe 'The Weapon', type: :feature do
       expect(@torgue.weapons.first.weapon_type).to eq("Sniper Rifle") 
       expect(@torgue.weapons.first.elemental?).to eq(false) 
     end
+
+    it 'displays a button to Delete Weapon' do
+      
+      visit "/weapons/#{@maliwan.weapons.first.id}"
+
+      expect(@maliwan.weapons.first.name).to eq("Impetuous Plasma Caster")
+
+      click_button "Delete"
+      
+      expect(@maliwan.weapons.first.name).to_not eq("Impetuous Plasma Caster")
+    end
   end
 end

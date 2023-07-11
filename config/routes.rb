@@ -21,4 +21,7 @@ Rails.application.routes.draw do
   
   get "/weapons/:id/edit", to: "weapons#edit"
   patch "/weapons/:id", to: "weapons#update"
+
+  delete "/manufacturers/:id", to: "manufacturers#destroy"
+  delete "/weapons/:id", to: "weapons#destroy"
 end

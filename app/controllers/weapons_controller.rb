@@ -64,4 +64,9 @@ class WeaponsController < ApplicationController
     weapon.save
     redirect_to "/weapons/#{weapon.id}"
   end
+
+  def destroy
+    Weapon.destroy(params[:id])
+    redirect_to "/weapons"
+  end
 end
